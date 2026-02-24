@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+class Box<T> {
+    T value;
+
+    void store(T value) {
+        this.value = value;
+    }
+
+    void display() {
+        System.out.println("Stored Value: " + value);
+    }
+}
+
+public class GenericBoxDemo {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        Box<Object> box = new Box<>();
+        int choice;
+
+        do {
+            System.out.println("\n--- Box Menu ---");
+            System.out.println("1. Store Integer");
+            System.out.println("2. Store String");
+            System.out.println("3. Display Value");
+            System.out.println("4. Exit");
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Enter Integer: ");
+                    box.store(sc.nextInt());
+                    break;
+
+                case 2:
+                    System.out.print("Enter String: ");
+                    box.store(sc.next());
+                    break;
+
+                case 3:
+                    box.display();
+                    break;
+            }
+
+        } while (choice != 4);
+    }
+}
